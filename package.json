@@ -1,6 +1,6 @@
 {
   "name": "durational",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Small library for dealing with Durations",
   "homepage": "https://github.com/miksago/durational",
   "repository": {
