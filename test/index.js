@@ -23,11 +23,11 @@ describe('durational', function() {
   describe('fromSeconds', function() {
     it('accepts numbers as input', function(done) {
       expect(function(){
-        durational.fromSeconds(15650)
+        durational.fromSeconds(15650);
       }).to.not.throw();
 
       expect(function(){
-        durational.fromSeconds("15650")
+        durational.fromSeconds('15650');
       }).to.throw();
 
       done();
@@ -109,7 +109,7 @@ describe('durational', function() {
         'PT10.7S',  // Trying to use fractional seconds
       ].forEach(function(string) {
         expect(function() {
-          durational.fromString(string)
+          durational.fromString(string);
         }).to.throw();
       });
 
@@ -127,15 +127,15 @@ describe('durational', function() {
     });
 
     it('should convert from a number', function(done) {
-      expect(durational.toString(4220)).to.equal('PT1H10M20S')
+      expect(durational.toString(4220)).to.equal('PT1H10M20S');
 
       done();
     });
-  })
+  });
 
   describe('toSeconds', function() {
     it('should convert from string', function(done) {
-      expect(durational.toSeconds("PT1H10M20S")).to.equal(4220);
+      expect(durational.toSeconds('PT1H10M20S')).to.equal(4220);
 
       done();
     });
@@ -145,7 +145,7 @@ describe('durational', function() {
         hours: 1,
         minutes: 10,
         seconds: 21
-      })).to.equal(4221)
+      })).to.equal(4221);
 
       done();
     });
