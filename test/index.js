@@ -132,4 +132,22 @@ describe('durational', function() {
       done();
     });
   })
-})
+
+  describe('toSeconds', function() {
+    it('should convert from string', function(done) {
+      expect(durational.toSeconds("PT1H10M20S")).to.equal(4220);
+
+      done();
+    });
+
+    it('should convert from a duration object', function(done) {
+      expect(durational.toSeconds({
+        hours: 1,
+        minutes: 10,
+        seconds: 21
+      })).to.equal(4221)
+
+      done();
+    });
+  });
+});
