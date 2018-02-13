@@ -1,11 +1,11 @@
 {
-  "name": "durational",
-  "version": "1.1.0",
+  "name": "@thisismissem/durational",
+  "version": "1.2.0",
   "description": "Small library for dealing with Durations",
-  "homepage": "https://github.com/miksago/durational",
+  "homepage": "https://github.com/thisismissem/durational",
   "repository": {
     "type": "git",
-    "url": "git@github.com:miksago/durational.git"
+    "url": "git@github.com:thisismissem/durational.git"
   },
   "main": "index.js",
   "scripts": {
@@ -16,10 +16,10 @@
     "iso8601",
     "rfc3339"
   ],
-  "author": "Micheil Smith <micheil@brandedcode.com>",
+  "author": "Emelia Smith <emelia@brandedcode.com>",
   "license": "MIT",
   "devDependencies": {
-    "code": "^1.1.1",
-    "lab": "^4.7.0"
+    "code": "^5.2.0",
+    "lab": "^15.2.2"
   }
 }

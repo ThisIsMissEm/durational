@@ -21,7 +21,7 @@ var StringTestCases = {
 
 describe('durational', function() {
   describe('fromSeconds', function() {
-    it('accepts numbers as input', function(done) {
+    it('accepts numbers as input', function() {
       expect(function(){
         durational.fromSeconds(15650);
       }).to.not.throw();
@@ -29,52 +29,44 @@ describe('durational', function() {
       expect(function(){
         durational.fromSeconds('15650');
       }).to.throw();
-
-      done();
     });
 
-    it('handles minutes, and seconds', function(done) {
+    it('handles minutes, and seconds', function() {
       var result = durational.fromSeconds(50);
 
       expect(result).to.be.a.object();
-      expect(result).to.be.deep.equal({
+      expect(result).to.be.equal({
         hours: 0,
         minutes: 0,
         seconds: 50
       });
-
-      done();
     });
 
-    it('handles minutes, and seconds', function(done) {
+    it('handles minutes, and seconds', function() {
       var result = durational.fromSeconds(1250);
 
       expect(result).to.be.a.object();
-      expect(result).to.be.deep.equal({
+      expect(result).to.be.equal({
         hours: 0,
         minutes: 20,
         seconds: 50
       });
-
-      done();
     });
 
-    it('handles hours, minutes, and seconds', function(done) {
+    it('handles hours, minutes, and seconds', function() {
       var result = durational.fromSeconds(15650);
 
       expect(result).to.be.a.object();
-      expect(result).to.be.deep.equal({
+      expect(result).to.be.equal({
         hours: 4,
         minutes: 20,
         seconds: 50
       });
-
-      done();
     });
   });
 
   describe('fromString', function() {
-    it('accepts only strings', function(done) {
+    it('accepts only strings', function() {
       expect(function() {
         durational.fromString('PT1H');
       }).to.not.throw();
@@ -84,21 +76,17 @@ describe('durational', function() {
         durational.fromString({});
         durational.fromString([]);
       }).to.throw();
-
-      done();
     });
 
-    it('should return an object representing the duration', function(done) {
+    it('should return an object representing the duration', function() {
       Object.keys(StringTestCases).forEach(function(testcase){
-        expect(durational.fromString(testcase)).to.deep.equal(StringTestCases[testcase]);
+        expect(durational.fromString(testcase)).to.equal(StringTestCases[testcase]);
       });
 
-      expect(durational.fromString('PT1H0S')).to.deep.equal({ hours:  1, minutes:  0, seconds:  0 });
-
-      done();
+      expect(durational.fromString('PT1H0S')).to.equal({ hours:  1, minutes:  0, seconds:  0 });
     });
 
-    it('should throw if given invalid format', function(done) {
+    it('should throw if given invalid format', function() {
       [
         '',         // Empty string
         'PT',       // Missing all values
@@ -112,42 +100,32 @@ describe('durational', function() {
           durational.fromString(string);
         }).to.throw();
       });
-
-      done();
     });
   });
 
   describe('toString', function() {
-    it('should convert from an object to a string', function(done) {
+    it('should convert from an object to a string', function() {
       Object.keys(StringTestCases).forEach(function(testcase){
         expect(durational.toString(StringTestCases[testcase])).to.equal(testcase);
       });
-
-      done();
     });
 
-    it('should convert from a number', function(done) {
+    it('should convert from a number', function() {
       expect(durational.toString(4220)).to.equal('PT1H10M20S');
-
-      done();
     });
   });
 
   describe('toSeconds', function() {
-    it('should convert from string', function(done) {
+    it('should convert from string', function() {
       expect(durational.toSeconds('PT1H10M20S')).to.equal(4220);
-
-      done();
     });
 
-    it('should convert from a duration object', function(done) {
+    it('should convert from a duration object', function() {
       expect(durational.toSeconds({
         hours: 1,
         minutes: 10,
         seconds: 21
       })).to.equal(4221);
-
-      done();
     });
   });
 });
